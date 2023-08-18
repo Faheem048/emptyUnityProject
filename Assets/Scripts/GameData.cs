@@ -1,18 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class GameData : MonoBehaviour
+[System.Serializable]
+public class GameData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<int> flippedCardIDs = new List<int>();
+    public List<int> UnflippedCardIDs = new List<int>();
+    public List<int> ShuffleCards = new List<int>();
 }

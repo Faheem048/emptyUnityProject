@@ -33,4 +33,8 @@ public class Card : MonoBehaviour
         GetComponent<Image>().sprite = spriteIcon;
     }
 
+    public void CheckCard()
+    {
+        GameManager.instance.CardClicked(this);
+    }
 }

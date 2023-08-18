@@ -112,5 +112,45 @@ public class GameManager : MonoBehaviour
 
         }
 
+        StartCoroutine(ShuffleCardPostions());
+    }
+
+
+
+
+
+    private IEnumerator ShuffleCardPostions()
+    {
+
+        yield return new WaitForSeconds(0.5f);
+
+        for (int i = 0; i < cards.Count; i++)
+        {
+            cards[i].transform.parent = cardParent;
+           // cards[i].transform.DOScale(Vector3.one, 0.5f);
+
+            if (cards[i].isFlipped)
+            {
+                cards[i].FlipCard();
+            }
+            else
+            {
+                cards[i].UnflipCard();
+            }
+        }
+
+
+        ShuffleCardFunction();
+
+
+    }
+
+
+    void ShuffleCardFunction()
+    {
+        for (int i = 0; i < cards.Count * 2; i++)
+        {
+            cards[Random.Range(0, cardParent.childCount)].transform.SetAsFirstSibling();
+        }
     }
 }

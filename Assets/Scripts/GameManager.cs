@@ -22,5 +22,19 @@ public class GameManager : MonoBehaviour
 
     }
 
- 
+    private void InstantiateCardSet(int cardID, int pack, bool Flip)
+    {
+        for (int i = 0; i < pack; i++)
+        {
+            GameObject cardGO = Instantiate(cardPrefab);
+            Card card = cardGO.GetComponent<Card>();
+            card.cardID = cardID;
+            card.spriteIcon = CardsSprites[cardID];
+            card.ChangeSprite();
+            card.isFlipped = Flip;
+            cards.Add(card);
+
+        }
+
+    }
 }

@@ -17,6 +17,20 @@ public class GameManager : MonoBehaviour
     public List<Card> cards = new List<Card>();
     public Transform cardParent;
 
+    [Header("Cards Result")]
+    public Text ScoreTxt;
+    public Text ResultTxt;
+    public Text TotalMoveTxt;
+    public Text ChanceTxt;
+
+    public GameObject ResultPanel;
+    public AudioSource audioSource;
+    public AudioClip FlipedAudio;
+    public AudioClip UnFlipedAudio;
+
+
+
+
     private string dataFilePath;
     GameData gameData = new GameData();
 
@@ -153,4 +167,15 @@ public class GameManager : MonoBehaviour
             cards[Random.Range(0, cardParent.childCount)].transform.SetAsFirstSibling();
         }
     }
+
+    private Card firstCard = null;
+    private Card secondCard = null;
+    int score;
+    int ChanceCount;
+    int MoveCount;
+
+
+
+
+
 }

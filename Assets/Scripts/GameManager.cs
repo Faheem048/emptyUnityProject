@@ -209,11 +209,26 @@ public class GameManager : MonoBehaviour
                     TotalMoveTxt.text = "TOTAL MOVE: " + MoveCount.ToString();
                 }
                 ChanceTxt.text = "Chance " + ChanceCount.ToString() + "/3";
-             
+                StartCoroutine(UnflipAfterDelay());
             }
         }
     }
+    private IEnumerator UnflipAfterDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
 
+
+        firstCard.UnflipCard();
+        secondCard.UnflipCard();
+
+        firstCard = null;
+        secondCard = null;
+    }
+
+    public void ResartFunction()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
 
 

@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     public void SaveGameData()
     {
- 
         gameData.flippedCardIDs.Clear();
         gameData.UnflippedCardIDs.Clear();
         foreach (Card card in cards)
@@ -53,26 +52,50 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void LoadGameData()
+    {
+        StartCoroutine(LoadingData());
+
+    }
+
+    IEnumerator LoadingData()
+    {
+        foreach (Card item in cards)
+        {
+            DestroyImmediate(item.gameObject);
+        }
 
 
+        cards.Clear();
+        yield return new WaitForSeconds(2f);
+        if (File.Exists(dataFilePath))
+        {
+            string jsonData = File.ReadAllText(dataFilePath);
+            gameData = JsonUtility.FromJson<GameData>(jsonData);
 
+            foreach (int cardID in gameData.flippedCardIDs)
+            {
 
+                InstantiateCardSet(cardID, 1, true);
 
+            }
+            foreach (int cardID in gameData.UnflippedCardIDs)
+            {
+                InstantiateCardSet(cardID, 1, false);
 
+            }
 
+        }
+    }
 
+    public void GameStartFunction()
+    {
+        for (int i = 0; i < TotalCards; i++)
+        {
+            InstantiateCardSet(Random.Range(1, 9), 2, false);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
     private void InstantiateCardSet(int cardID, int pack, bool Flip)

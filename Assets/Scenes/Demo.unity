@@ -3020,6 +3020,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3d992524bb8f0494a9a5bdbf053fd91e, type: 3}
   cards: []
   cardParent: {fileID: 833216193}
+  ScoreTxt: {fileID: 679529637}
+  ResultTxt: {fileID: 186588711}
+  TotalMoveTxt: {fileID: 918664395}
+  ChanceTxt: {fileID: 496967854}
+  ResultPanel: {fileID: 356645354}
+  audioSource: {fileID: 1355576629}
+  FlipedAudio: {fileID: 0}
+  UnFlipedAudio: {fileID: 0}
 --- !u!4 &1591818285
 Transform:
   m_ObjectHideFlags: 0

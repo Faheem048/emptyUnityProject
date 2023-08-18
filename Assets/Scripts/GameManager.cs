@@ -174,6 +174,46 @@ public class GameManager : MonoBehaviour
     int ChanceCount;
     int MoveCount;
 
+    public void CardClicked(Card clickedCard)
+    {
+        MoveCount++;
+        if (firstCard == null)
+        {
+            firstCard = clickedCard;
+            firstCard.FlipCard();
+        }
+        else if (secondCard == null)
+        {
+            secondCard = clickedCard;
+            secondCard.FlipCard();
+
+         
+            if (firstCard.cardID == secondCard.cardID)
+            {
+            
+             
+                firstCard = null;
+                secondCard = null;
+                score += 100;
+                ScoreTxt.text = "Score: " + score.ToString();
+                audioSource.PlayOneShot(FlipedAudio);
+            }
+            else
+            {
+                audioSource.PlayOneShot(UnFlipedAudio);
+                ChanceCount++;
+                if (ChanceCount == 4)
+                {
+                    ResultPanel.SetActive(true);
+                    ResultTxt.text = "TOTAL SCORE: " + score.ToString();
+                    TotalMoveTxt.text = "TOTAL MOVE: " + MoveCount.ToString();
+                }
+                ChanceTxt.text = "Chance " + ChanceCount.ToString() + "/3";
+             
+            }
+        }
+    }
+
 
 
 

@@ -3,8 +3,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-using System.Linq;
+//using System.Linq;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -141,7 +142,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < cards.Count; i++)
         {
             cards[i].transform.parent = cardParent;
-           // cards[i].transform.DOScale(Vector3.one, 0.5f);
+            cards[i].transform.DOScale(Vector3.one, 0.5f);
 
             if (cards[i].isFlipped)
             {
@@ -187,11 +188,12 @@ public class GameManager : MonoBehaviour
             secondCard = clickedCard;
             secondCard.FlipCard();
 
-         
+
             if (firstCard.cardID == secondCard.cardID)
             {
-            
-             
+
+                firstCard.gameObject.transform.DOScale(Vector3.zero, 0.5f);
+                secondCard.gameObject.transform.DOScale(Vector3.zero, 0.5f);
                 firstCard = null;
                 secondCard = null;
                 score += 100;

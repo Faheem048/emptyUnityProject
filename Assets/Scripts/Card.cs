@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Card : MonoBehaviour
 {
@@ -19,12 +20,12 @@ public class Card : MonoBehaviour
     {
         isFlipped = true;
         cardBack.SetActive(false);
-
     }
     public void UnflipCard()
     {
         isFlipped = false;
         cardBack.SetActive(true);
+        cardBack.transform.DOScale(Vector3.one, 0.3f);
 
     }
 

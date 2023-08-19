@@ -3004,7 +3004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43d19bea9f268c4481134452a7b42c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalCards: 9
+  TotalCards: 6
   cardPrefab: {fileID: 2978635785162221623, guid: 3a570be4f80136a43884376621d2a859, type: 3}
   CardsSprites:
   - {fileID: 21300000, guid: 3d992524bb8f0494a9a5bdbf053fd91e, type: 3}

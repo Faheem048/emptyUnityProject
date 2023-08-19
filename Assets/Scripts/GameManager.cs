@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
             {
                 audioSource.PlayOneShot(UnFlipedAudio);
                 ChanceCount++;
-                if (ChanceCount == 4)
+                if (ChanceCount > 4)
                 {
                     ResultPanel.SetActive(true);
                     ResultTxt.text = "TOTAL SCORE: " + score.ToString();

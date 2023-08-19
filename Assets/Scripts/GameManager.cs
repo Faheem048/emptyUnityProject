@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < cards.Count; i++)
         {
-            cards[i].transform.parent = cardParent;
+            cards[i].transform.SetParent(cardParent);
             cards[i].transform.DOScale(Vector3.one, 0.5f);
 
             if (cards[i].isFlipped)
